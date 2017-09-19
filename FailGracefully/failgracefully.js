@@ -29,13 +29,16 @@ var last=textByLine.length - 1;
 var index=1;
 var myh1 = document.createElement('h1');
 myh1.id='myh1';
-myh1.innerHTML="<pre>" + textByLine[first] + "</pre>";
 var myh2 = document.createElement('h1');
 myh2.id='myh2';
 var myh3 = document.createElement('h1');
 myh3.id='myh3';
+mydocument.appendchild(myh1);
+mydocument.appendchild(myh2);
+mydocument.appendchild(myh3);
 var myhead = document.getElementById('myh1');
-myhead.innerHTML="<pre>" + textByLine[0] + "</pre>";
+myh1.innerHTML="<pre>" + textByLine[0] + "</pre>";
+myh3.innerHTML="<pre>" + textByLine[0] + "</pre>";
 var interval = setInterval(setH1, sleepytime);
 
 function readTextFile(file)
