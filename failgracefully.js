@@ -3,15 +3,10 @@ var myhead = document.getElementById('myh1');
 var styleEle = document.createElement('style');
 styleEle.type = 'text/css';
 styleEle.id = "main-style-css";
-styleEle.textContent = 'h1 { text-align: center; font-size: 80px; } ';
-styleEle.textContent += 'h1#myh1 { color: #222222; z-index: -1;} ';
-styleEle.textContent += 'h1#myh2 { color: #999999; z-index: 0;} ';
-styleEle.textContent += 'h1#myh3 { color: #ffffff; z-index: 1;} ';
+styleEle.textContent = 'h1 { font-size: 80px; }'
 styleEle.textContent = styleEle.textContent + '';
 document.head.appendChild(styleEle);
 
-
-//length of time in ms between changes
 var sleepytime=3000;
 
 var blocks=10;
@@ -27,13 +22,6 @@ var textByLine = blah.split("\n");
 var last=textByLine.length - 1;
 
 var index=1;
-var myh1 = document.createElement('h1');
-myh1.id='myh1';
-myh1.innerHTML="<pre>" + textByLine[first] + "</pre>";
-var myh2 = document.createElement('h1');
-myh2.id='myh2';
-var myh3 = document.createElement('h1');
-myh3.id='myh3';
 var myhead = document.getElementById('myh1');
 myhead.innerHTML="<pre>" + textByLine[0] + "</pre>";
 var interval = setInterval(setH1, sleepytime);
@@ -81,9 +69,7 @@ function setH1() {
     rand=last;
   }
   console.log(rand);
-  var myoldhead = document.getElementById('myh2');
-  var myhead = document.getElementById('myh3');
-  myoldhead.innerHTML = myhead.innerHTML;
+  var myhead = document.getElementById('myh1');
   myhead.innerHTML="<pre>" + textByLine[rand] + "</pre>";
   index=index + 1
 }
