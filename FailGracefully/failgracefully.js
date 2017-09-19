@@ -3,10 +3,10 @@ var myhead = document.getElementById('myh1');
 var styleEle = document.createElement('style');
 styleEle.type = 'text/css';
 styleEle.id = "main-style-css";
-styleEle.textContent = 'h1 { text-align: center; font-size: 80px; } ';
-styleEle.textContent += 'h1#myh1 { color: #222222; z-index: -1;} ';
-styleEle.textContent += 'h1#myh2 { color: #999999; z-index: 0;} ';
-styleEle.textContent += 'h1#myh3 { color: #ffffff; z-index: 1;} ';
+styleEle.textContent = 'h1 { position: absolute; top: 0px; left: 50%; margin-left: -20%; font-size: 80px; } ';
+styleEle.textContent += 'h1#myh1 { color: #dddddd; z-index: -1;} ';
+styleEle.textContent += 'h1#myh2 { color: #bbbbbb; z-index: 0;} ';
+styleEle.textContent += 'h1#myh3 { color: #000000; z-index: 1;} ';
 styleEle.textContent = styleEle.textContent + '';
 document.head.appendChild(styleEle);
 
