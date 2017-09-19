@@ -17,7 +17,7 @@ var second=18;
 var third=51;
 var fourth=84;
 var fifth=101;
-var blah=readTextFile("/failgracefully.txt");
+var blah=readTextFile("failgracefully.txt");
 var textByLine = blah.split("\n");
 var last=textByLine.length - 1;
 
