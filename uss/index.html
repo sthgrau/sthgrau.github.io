@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>User-Script Sandbox</title>
+	<style type="text/css">
+	body{
+		margin:10px;
+		font-size:0.9em;
+	}
+	a{
+		color:#F00;
+	}
+	.clear{
+		clear:both;
+	}
+	</style>
+	<link rel="stylesheet" href="css/tab-view.css" type="text/css" media="screen">
+	<script type="text/javascript" src="js/ajax.js"></script>
+	<script type="text/javascript" src="js/tab-view.js">
+	/************************************************************************************************************
+	(C) www.dhtmlgoodies.com, October 2005
+	
+	This is a script from www.dhtmlgoodies.com. You will find this and a lot of other scripts at our website.	
+	
+	Terms of use:
+	You are free to use this script as long as the copyright message is kept intact. However, you may not
+	redistribute, sell or repost it without our permission.
+	
+	Updated:
+		
+		March, 14th, 2006 - Create new tabs dynamically
+	
+	Thank you!
+	
+	www.dhtmlgoodies.com
+	Alf Magne Kalleland
+	
+	************************************************************************************************************/		
+	</script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> 
+</head>
+<body>
+
+<div id="dhtmlgoodies_tabView2">
+	<div class="dhtmlgoodies_aTab">
+            This is a sandbox environment for user-scripts. Sometimes, you want to test some things out and don't have a page for it.. You can use this instead..
+            
+            <p>
+            To create a tab inside a user-script, just run the following
+            </p>
+            <code> par = createNewTab('dhtmlgoodies_tabView2','<Your Title>',"[OPTIONAL: Your Initial Text]",'[OPTIONAL: a url to load into the tab via ajax]',(true or false, to put a close button or not);</code>
+
+            <p>
+            For example:
+            </p>
+            <code> par = createNewTab('dhtmlgoodies_tabView2','<Your Title>',"Testing a thing",'This will be replaced later','',true);</code>
+
+            <p>
+            jQuery is preloaded
+            </p>
+	</div>
+</div>
+
+<script type="text/javascript">
+initTabs('dhtmlgoodies_tabView2',Array('Settings'),0,"90%","90%",Array(false));
+</script>
+</body>
+</html>
