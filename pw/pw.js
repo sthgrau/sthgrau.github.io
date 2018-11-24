@@ -78,7 +78,7 @@ sty.type = 'text/css';
 sty.textContent = 'td {width: 20px; } td.c0 { background-color: #ff8888; } td.c1 { background-color: #88ff88; } td.c2 { background-color: #8888ff; } td.c3 { background-color: #cccc88; }';
 
 var par = document.getElementById('tab');
-par.appendChild(sty);
+document.head.appendChild(sty);
 console.log(par);
 
 
