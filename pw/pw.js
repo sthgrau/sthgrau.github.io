@@ -26,7 +26,13 @@ document.head.appendChild(sc);
 var sty = document.createElement("style");
 sty.id = "myStyle";
 sty.type = 'text/css';
-sty.textContent = 'td {width: 20px; } td.c0 { background-color: #ff8888; } td.c1 { background-color: #88ff88; } td.c2 { background-color: #8888ff; } td.c3 { background-color: #cccc88; }';
+sty.textContent = 'td {width: 18; text-align: center;} td.c0 { background-color: #ff8888; } td.c1 { background-color: #88ff88; } td.c2 { background-color: #8888ff; } td.c3 { background-color: #cccc88; } ';
+sty.textContent += 'td[id$="_8"] { border-left: solid black; } ';
+sty.textContent += 'td[id^="data_8"] { border-top: solid black; } ';
+sty.textContent += 'td[id$="_4"],td[id$="_12"] { border-left: solid DodgerBlue  ; } ';
+sty.textContent += 'td[id^="data_4"],td[id^="data_12"] { border-top: solid DodgerBlue  ; } ';
+sty.textContent += 'td[id$="_2"],td[id$="_6"],td[id$="_10"],td[id$="_14"] { border-left: solid red; } ';
+sty.textContent += 'td[id^="data_2"],td[id^="data_6"],td[id^="data_10"],td[id^="data_14"] { border-top: solid red; } ';
 
 var par = document.getElementById('tab');
 document.head.appendChild(sty);
@@ -134,7 +140,9 @@ function getChunk(num) {
 }
 
 function doqrcode(num) {
+    var anc = document.getElementById("linky");
     var url = document.URL.split("?")[0] + "?id=" + num;
+    anc.href=url;
     var md = document.getElementById("qrcode");
     if ( md.childNodes.length > 0 ) {
         md.childNodes[0].remove();
