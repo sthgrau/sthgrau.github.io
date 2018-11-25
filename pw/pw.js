@@ -11,6 +11,17 @@ var ls = [];
 var Ls = [];
 var ss = [];
 var randy = '';
+var num = -1;
+
+if ( document.URL.match(/id=[0-9]+/) ) {
+    num = parseInt(document.URL.split("?")[1].match(/id=[0-9]*/)[0].split("=")[1]);
+}
+
+var sc = document.createElement('script');
+sc.type = 'application/javascript';
+sc.src = 'https://cdn.rawgit.com/davidshimjs/qrcodejs/master/qrcode.min.js';
+sc.onload = function() { if ( num > -1 ) { doqrcode(num); }};
+document.head.appendChild(sc);
 
 var sty = document.createElement("style");
 sty.id = "myStyle";
@@ -25,7 +36,7 @@ var inp = document.createElement('input');
 inp.id = 'offset';
 inp.onchange = function(e) {
     var num = parseInt(e.target.value);
-    getChunk(num,10000);
+    getChunk(num);
 }
 function showStuff(num) {
     var tn = num;
@@ -64,8 +75,17 @@ function showStuff(num) {
             f.innerText = val;
         }
     }
+    console.log("num=",num);
+    if ( typeof(QRCode) == "function" ) {
+        doqrcode(num);
+    }
 }
 par.appendChild(inp);
+
+if ( num > -1 ) {
+    inp.value = num;
+    getChunk(num);
+}
 
 var but = document.createElement('but');
 but.innerText = "Doit";
@@ -90,13 +110,13 @@ for ( var r = 0; r < 16; r++ ) {
 }
 par.appendChild(ta);
 
-function getChunk(start,len) {
+function getChunk(num) {
     var rawFile = new XMLHttpRequest();
 
     var myreturn="";
     rawFile.open("GET", 'rando.txt', true); 
     rawFile.setRequestHeader('Accept','text/plain');
-    rawFile.setRequestHeader('Range', 'bytes=' + start + '-' + (start + len));
+    rawFile.setRequestHeader('Range', 'bytes=0-' + (10000 + num));
     rawFile.responseType = 'text';
     rawFile.onreadystatechange = function ()
     {
@@ -105,28 +125,22 @@ function getChunk(start,len) {
             if(rawFile.status === 206 ) //|| rawFile.status == 0)
             {
                 var allText = rawFile.responseText;
-                randy=allText;
-                showStuff(0);
+                randy=allText.split("").reverse().join("");
+                showStuff(num);
             }
         }
     }
    rawFile.send(null);
 }
 
-function checkUrl(url) {
-    var request = false;
-    if (window.XMLHttpRequest) {
-            request = new XMLHttpRequest;
-    } else if (window.ActiveXObject) {
-            request = new ActiveXObject("Microsoft.XMLHttp");
+function doqrcode(num) {
+    var url = document.URL.split("?")[0] + "?id=" + num;
+    var md = document.getElementById("qrcode");
+    if ( md.childNodes.length > 0 ) {
+        md.childNodes[0].remove();
+        md.childNodes[0].remove();
     }
-
-    if (request) {
-            request.open("GET", url);
-            if (request.status == 200) { return true; }
-    }
-
-    return false;
+    new QRCode(document.getElementById("qrcode"), url);
 }
 
 function doit() {
@@ -144,21 +158,6 @@ function doit() {
     }).catch((reason) => {
         consolelog('Handle rejected promise (' + reason + ') here.');
     })
-}
-
-function getit() {
-    oonsole.log("doing it");
-    //var myUrl = "https://chex.2id.us";
-    var myUrl = "https://www.random.org/integers/?num=20&min=0&max=268435455&col=1&base=16&format=plain&rnd=new";
-    GM_xmlhttpRequest({
-        method: "GET",
-        url: myUrl,
-        onload: function(response) {
-            console.log(response.responseText);
-            //alert(response.responseText);
-        }
-    });
-    console.log("done it?");
 }
 
 function bits2Float32(bytes,exp) {
