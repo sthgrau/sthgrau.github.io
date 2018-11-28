@@ -40,6 +40,7 @@ document.head.appendChild(sty);
 
 var inp = document.createElement('input');
 inp.id = 'offset';
+inp.type = 'number';
 inp.onchange = function(e) {
     var num = parseInt(e.target.value);
     getChunk(num);
