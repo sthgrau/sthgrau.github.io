@@ -14,3 +14,4 @@ Fwiw, I noticed that the combination of table lines and square colors comes clos
 
 I'd like to be able to scroll up, down, left and right; every point would then have as many directions as any other point. As is, in the corners, those 4 characters only have 6 different possible passwords with it being the start or end, but one in the center has 16. I can see that working in one axis, but not two.
 
+The QR code is to make it easier to retrieve the same table.
