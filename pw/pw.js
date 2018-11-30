@@ -33,18 +33,27 @@ sty.textContent += 'td[id$="_4"],td[id$="_12"] { border-left: solid DodgerBlue  
 sty.textContent += 'td[id^="data_4"],td[id^="data_12"] { border-top: solid DodgerBlue  ; } ';
 sty.textContent += 'td[id$="_2"],td[id$="_6"],td[id$="_10"],td[id$="_14"] { border-left: solid red; } ';
 sty.textContent += 'td[id^="data_2"],td[id^="data_6"],td[id^="data_10"],td[id^="data_14"] { border-top: solid red; } ';
+//sty.textContent += 'div > label { position: absolute;} input:valid { background: white; }';
 
 var par = document.getElementById('tab');
 document.head.appendChild(sty);
 
+var inpdiv = document.createElement('div');
 
 var inp = document.createElement('input');
 inp.id = 'offset';
 inp.type = 'number';
+inp.alt = 'Enter an offset';
 inp.onchange = function(e) {
     var num = parseInt(e.target.value);
     getChunk(num);
 }
+
+var lab = document.createElement('label');
+lab.id = 'offlab';
+lab.for = 'offset';
+lab.innerText = 'Offset: ';
+
 function showStuff(num) {
     var tn = num;
     var dd = randy.slice(num);
@@ -87,7 +96,9 @@ function showStuff(num) {
         doqrcode(num);
     }
 }
-par.appendChild(inp);
+par.appendChild(inpdiv);
+inpdiv.appendChild(lab);
+inpdiv.appendChild(inp);
 
 if ( num > -1 ) {
     inp.value = num;
