@@ -1,3 +1,5 @@
+Working page: https://sthgrau.github.io/pw/
+
 This is the result of wondering if you could have your password in plain sight, and yet still be somewhat secure. This is a solution to that.
 
 The most interesting part of this for me was figuring out if you could arrange numbers, letters and symbols in a way that any contiguous X character string necessarily contains at least one member of the standard 4 classes for passwords. I didn't end up with a theory, but I did find a pattern that works.
@@ -11,6 +13,4 @@ The coloring was an attempt to make it easier to remember the starting point, wh
 Fwiw, I noticed that the combination of table lines and square colors comes close to being unique in itself. Changing the pattern of the square colors, using shifting or mirroring, could potentially make each 4 squares unique, and therefore give another means of remembering the right one.
 
 I'd like to be able to scroll up, down, left and right; every point would then have as many directions as any other point. As is, in the corners, those 4 characters only have 6 different possible passwords with it being the start or end, but one in the center has 16. I can see that working in one axis, but not two.
-
-Working page: https://sthgrau.github.io/pw/
 
